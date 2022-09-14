@@ -94,7 +94,7 @@ post '/venues' do
     name: params[:name],
     city: params[:city],
     state: params[:state],
-    address: params[:address]
+    address: params[:address],
      phone: params[:phone],
      genres: params[:genres],
      facebook_link: params[:facebook_link],
@@ -113,7 +113,7 @@ patch '/venues/:id' do
     name: params[:name],
     city: params[:city],
     state: params[:state],
-    address: params[:address]
+    address: params[:address],
     phone: params[:phone],
     genres: params[:genres],
     facebook_link: params[:facebook_link],
@@ -122,12 +122,13 @@ patch '/venues/:id' do
     looking_for_venues: params[:looking_for_venues],
     seeking_description: params[:seeking_description]
   )
+
   venue.to_json
 end
 delete '/venues/:id' do 
-  venues = Venue.find(params[:id])
-   venues.destroy
-   venues.to_json
+  venue = Venue.find(params[:id])
+   venue.destroy
+   venue.to_json
  end
 
 get '/shows' do
