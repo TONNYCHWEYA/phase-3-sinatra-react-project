@@ -72,10 +72,11 @@ class ApplicationController < Sinatra::Base
     )
     artist.to_json
   end
-#   delete '/artists/:id' do 
-#     artist = Artist.find(params[:id])
-#     artist.destroy
-#     artist.to_json
+   delete '/artists/:id' do 
+    artist = Artist.find(params[:id])
+     artist.destroy
+     artist.to_json
+   end
 
 
 get '/venues' do
@@ -123,6 +124,11 @@ patch '/venues/:id' do
   )
   venue.to_json
 end
+delete '/venues/:id' do 
+  venues = Venue.find(params[:id])
+   venues.destroy
+   venues.to_json
+ end
 
 get '/shows' do
   show = show.all 
@@ -153,5 +159,11 @@ show.update(
    start_time: params[:start_time]
 )
 end
+
+delete '/shows/:id' do 
+  show = Show.find(params[:id])
+   show.destroy
+   show.to_json
+ end
 
 end
